@@ -1,0 +1,52 @@
+body {
+    background-color: lightblue;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+
+}
+h2 {
+    display: flex;
+    justify-content: center;
+}
+main {
+    justify-content: center;
+}
+.timer {
+    display:flex;
+    justify-content: center;
+}
+
+.btn {
+    background-color: lightcoral;
+    border-radius: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+.questionDiv {
+    display: flex;
+    justify-content: center;
+    border: solid 2px black;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .5)
+}
+.hidden {
+    display:none;
+}
+.question-Title {
+    justify-content: center;
+    width: 100%;
+
+}
+.answerDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.answerDiv button {
+    padding: 10px;
+}
