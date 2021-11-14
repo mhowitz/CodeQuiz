@@ -1,12 +1,16 @@
 var startBtn = document.getElementById("btn");
 var currentIndex = 0;
-var timeLeft = 60;
+var timeLeft = 10;
+var userScore = 0;
 
 var questionTitle = document.querySelector(".question-Title");
 var questionDiv = document.querySelector(".questionDiv");
 var answerDiv = document.querySelector(".answerDiv")
 var timerEl = document.querySelector(".timer");
-var hsDiv = document.querySelector(".hsDiv");
+var hsDiv = document.querySelector("#hsDiv");
+var saveBtn = document.getElementById("saveBtn");
+var initials = document.getElementById("initials");
+var hsList = document.getElementById("hsList");
 
 
 var questions = [
@@ -71,6 +75,13 @@ var startQuiz = function() {
 
 function showQuestion() {
     answerDiv.innerHTML = "";
+    if(timeLeft === 1 || currentIndex === questions.length) {
+        console.log("THe quiz is ova");
+        questionDiv.classList.add("hidden");
+        hsDiv.classList.remove("hidden");
+        hsDiv.classList.add("hsDiv");
+        return
+    }
     var currentQuestion = questions[currentIndex];
     questionTitle.textContent = currentQuestion.question;
     for (var i = 0; i < currentQuestion.choices.length; i++) {
@@ -81,9 +92,7 @@ function showQuestion() {
         choiceBtn.setAttribute("value", element);
         choiceBtn.onclick=checkQuestion;
         answerDiv.appendChild(choiceBtn);
-        if(timeLeft===0) {
-            console.log("THe quiz is ova")
-        }
+
     }
 //when start button is clicked, it is also referencing the question object. maybe need to add uunique id to new buttons
 }
@@ -94,6 +103,7 @@ function showQuestion() {
 function checkQuestion() {
     if (this.value === questions[currentIndex].answer) {
         console.log("this is correct");
+        userScore++;
     } else {
         console.log("this is incorrect");
         timeLeft -= 5;
@@ -103,9 +113,37 @@ function checkQuestion() {
 
 }
 
-
-
 startBtn.addEventListener("click", startQuiz);
 
-//do a timer
-// 
+var highscores = [];
+
+if(localStorage.getItem("high scores")) {
+    highscores = JSON.parse(localStorage.getItem("high scores"));
+    for (i = 0; i < highscores.length; i++) {
+        var hsLi = document.createElement("li");
+        hsLi.textContent = highscores[i].initials + ' : ' + highscores[i].score;
+        hsList.appendChild(hsLi);
+
+    }
+};
+
+
+
+saveBtn.addEventListener("click", function(){
+    console.log("u clicked the save bttn")
+
+    //creating object to go into local storage
+    var hsObject = {
+        "initials": initials.value,
+        "score": userScore
+    }
+    console.log(hsObject);
+    highscores.push(hsObject);
+    localStorage.setItem("high scores", JSON.stringify(highscores));
+    var hsLi = document.createElement("li");
+    hsLi.textContent = initials.value + ' : ' + userScore;
+    hsList.appendChild(hsLi);
+    initials.value = "";
+});
+
+

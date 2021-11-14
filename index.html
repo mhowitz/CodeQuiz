@@ -10,15 +10,16 @@
 <body>
     <header>
         <h1>Coding Quiz</h1>
-
-    </header>
-    <main>
-        <h2 class = "hsDiv">
-            <a href = "highscores.html">High Scores</a>
-         </h2>
         <div>
             <p class = "timer"></p>
         </div>
+
+    </header>
+    <main>
+        <div class = "hsBtn">
+            <button onclick = "window.location.href='highscores.html'" id = "hsBtn">Click to View Highscores!</button>
+        </div>
+
 
         <section class = questionDiv id = "questionDiv">
             <div class = "btnDiv" id = "btnDiv" >
@@ -31,9 +32,20 @@
             <div class="answerDiv">
 
             </div>
-
-            </div>
         </section>
+        <section >
+            <div  class = "hidden" id = "hsDiv" >
+                <ul id = "hsList">
+
+                </ul>
+                <input id = "initials" placeholder="Input your iniitals"/>
+                <button id ="saveBtn">Save Highscore</button>
+                
+            </div>
+
+
+    </section>
+
     </main>
 
     <script src= "assets/js/script.js"></script>

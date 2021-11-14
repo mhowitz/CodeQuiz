@@ -1,22 +1,47 @@
+:root {
+    --color1: rgba(255, 255, 255, .5)
+}
 body {
-    background-color: lightblue;
+    background-image: url("../images/pexels-markus-spiske-965345.jpg");
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: 80%;
+    background-color:rgba(255, 255, 255, .2)
+
 }
 
 header {
     display: flex;
     justify-content: center;
+    background-color:var(--color1);
+    border: solid 2px black;
+    margin: 50px;
+    border-radius: 15px;
 
 }
-h2 {
+.hsBtn {
     display: flex;
     justify-content: center;
 }
+#hsBtn {
+    background-color: pink;
+    padding: 15px;
+    border-radius: 10px;
+
+}
+#hsBtn:hover {
+    background-color: red;
+}
+
 main {
     justify-content: center;
 }
 .timer {
     display:flex;
-    justify-content: center;
+    justify-content: flex-end;
+    background-color:var(--color1);
+    border: solid 2px black;
+    border-radius: 15px;
 }
 
 .btn {
@@ -24,6 +49,9 @@ main {
     border-radius: 10px;
     justify-content: center;
     padding: 20px;
+}
+.btn:hover {
+    background-color: red;
 }
 .questionDiv {
     display: flex;
@@ -34,6 +62,16 @@ main {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, .5)
 }
+.hsDiv {
+    display:flex;
+    justify-content: center;
+    border: solid 2px black;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .5)
+}
+
 .hidden {
     display:none;
 }
@@ -49,4 +87,10 @@ main {
 }
 .answerDiv button {
     padding: 10px;
+    margin: 2px;
+    background-color: pink;
+    border-radius: 10px;
+}
+.answerDiv button:hover {
+    background-color: white;
 }
