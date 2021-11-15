@@ -2,11 +2,10 @@
     --color1: rgba(255, 255, 255, .5)
 }
 body {
-    background-image: url("../images/pexels-markus-spiske-965345.jpg");
+    background-image: url("../images/pexels-markus-spiske-965345.jpg") ;
     background-size:cover;
     background-attachment: fixed;
     background-position: 80%;
-    background-color:rgba(255, 255, 255, .2)
 
 }
 
@@ -38,10 +37,20 @@ main {
 }
 .timer {
     display:flex;
-    justify-content: flex-end;
+    justify-content: center;
     background-color:var(--color1);
     border: solid 2px black;
     border-radius: 15px;
+    flex: .25;
+    padding: 10px;
+
+}
+
+.timerDiv {
+    display:flex;
+    justify-content: center;
+    padding: 10px;
+    
 }
 
 .btn {
@@ -93,4 +102,12 @@ main {
 }
 .answerDiv button:hover {
     background-color: white;
+}
+
+.hsForm {
+    justify-content: center;
+}
+table {
+    display: flex;
+    justify-content: center;
 }

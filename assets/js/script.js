@@ -1,16 +1,18 @@
 var startBtn = document.getElementById("btn");
 var currentIndex = 0;
-var timeLeft = 10;
+var timeLeft = 5;
 var userScore = 0;
 
 var questionTitle = document.querySelector(".question-Title");
 var questionDiv = document.querySelector(".questionDiv");
 var answerDiv = document.querySelector(".answerDiv")
-var timerEl = document.querySelector(".timer");
+var timerEl = document.querySelector("#timer");
 var hsDiv = document.querySelector("#hsDiv");
 var saveBtn = document.getElementById("saveBtn");
 var initials = document.getElementById("initials");
 var hsList = document.getElementById("hsList");
+var hsInitials = document.getElementById("hsInitials");
+var hsScore = document.getElementById("hsScore");
 
 
 var questions = [
@@ -43,6 +45,9 @@ var questions = [
 
 
 function countdown() {
+    timerEl.classList.remove("hidden");
+    timerEl.classList.add("timer");
+    
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
       // As long as the `timeLeft` is greater than 1
@@ -61,6 +66,9 @@ function countdown() {
         // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
         // Call the `displayMessage()` function
+        timerEl.textContent = "Your Time has Ran Out";
+        showQuestion();
+
       }
     }, 1000);
   }
@@ -75,7 +83,7 @@ var startQuiz = function() {
 
 function showQuestion() {
     answerDiv.innerHTML = "";
-    if(timeLeft === 1 || currentIndex === questions.length) {
+    if(timeLeft === 0 || currentIndex === questions.length) {
         console.log("THe quiz is ova");
         questionDiv.classList.add("hidden");
         hsDiv.classList.remove("hidden");
@@ -94,11 +102,10 @@ function showQuestion() {
         answerDiv.appendChild(choiceBtn);
 
     }
-//when start button is clicked, it is also referencing the question object. maybe need to add uunique id to new buttons
+
 }
 //if timer is 0 and all questions are answered, go to high score page
-//need to create high score page
-//local storage shit, stringify, parse to reload
+
 
 function checkQuestion() {
     if (this.value === questions[currentIndex].answer) {
@@ -120,9 +127,12 @@ var highscores = [];
 if(localStorage.getItem("high scores")) {
     highscores = JSON.parse(localStorage.getItem("high scores"));
     for (i = 0; i < highscores.length; i++) {
-        var hsLi = document.createElement("li");
-        hsLi.textContent = highscores[i].initials + ' : ' + highscores[i].score;
-        hsList.appendChild(hsLi);
+        var tInitials = document.createElement("tr");
+        var tScore = document.createElement("tr");
+        tInitials.textContent = highscores[i].initials;
+        tScore.textContent = highscores[i].score;
+        hsInitials.appendChild(tInitials);
+        hsScore.appendChild(tScore);
 
     }
 };
@@ -140,9 +150,12 @@ saveBtn.addEventListener("click", function(){
     console.log(hsObject);
     highscores.push(hsObject);
     localStorage.setItem("high scores", JSON.stringify(highscores));
-    var hsLi = document.createElement("li");
-    hsLi.textContent = initials.value + ' : ' + userScore;
-    hsList.appendChild(hsLi);
+    var tInitials = document.createElement("tr");
+    var tScore = document.createElement("tr");
+    tInitials.textContent(initials.value);
+    tScore.textContent(userScore);
+    hsInitials.appendChild(tInitials);
+    hsScore.appendChild(tScore);
     initials.value = "";
 });
 

@@ -14,18 +14,29 @@
         </h1>
     </header>
     <main>
-        <section class = "hsDiv">
-            
-                <ul id = "hsList">
+        <section >
+            <div  id = "hsDiv" >
+                <table id = "hsList">
+                    <tr>
+                        <th >Initials</th>
+                        <th >Score</th>
+                    </tr>
+                    <tr>
+                        <td id ="hsInitials"></td>
+                        <td id ="hsScore"></td>
+                    </tr>
+                </table>
+                <div class = "hsForm">
+                    <input id = "initials" placeholder="Input your iniitals"/>
+                    <button id ="saveBtn">Save Highscore</button>
+                    
+                </div>
 
-                </ul>
-                <input id = "initials" placeholder="Input your iniitals"/>
-                <button id ="saveBtn">Save Highscore</button>
-                
+            </div>
 
 
-        </section>
+    </section>
     </main>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/highscores.js"></script>
 </body>
 </html>
