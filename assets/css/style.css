@@ -2,13 +2,15 @@
     --color1: rgba(255, 255, 255, .5)
 }
 body {
-    background-image: url("../images/pexels-markus-spiske-965345.jpg") ;
+    background-image: linear-gradient(rgba(204, 95, 95, 0.3), rgba(0, 0, 0, 0.3)), url("../images/pexels-markus-spiske-965345.jpg");
     background-size:cover;
     background-attachment: fixed;
-    background-position: 80%;
+    background-position: center;
+    position:relative;
+}
+.hero {
 
 }
-
 header {
     display: flex;
     justify-content: center;
@@ -50,7 +52,7 @@ main {
     display:flex;
     justify-content: center;
     padding: 10px;
-    
+
 }
 
 .btn {
@@ -72,6 +74,15 @@ main {
     background-color: rgba(255, 255, 255, .5)
 }
 .hsDiv {
+    display:flex;
+    justify-content: center;
+    border: solid 2px black;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .5)
+}
+.hsPage {
     display:flex;
     justify-content: center;
     border: solid 2px black;

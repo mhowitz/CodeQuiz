@@ -1,8 +1,8 @@
 var startBtn = document.getElementById("btn");
 var currentIndex = 0;
-var timeLeft = 5;
+var timeLeft = 60;
 var userScore = 0;
-
+var timeInterval;
 var questionTitle = document.querySelector(".question-Title");
 var questionDiv = document.querySelector(".questionDiv");
 var answerDiv = document.querySelector(".answerDiv")
@@ -13,6 +13,7 @@ var initials = document.getElementById("initials");
 var hsList = document.getElementById("hsList");
 var hsInitials = document.getElementById("hsInitials");
 var hsScore = document.getElementById("hsScore");
+var answerShow = document.getElementById("checkQuestion");
 
 
 var questions = [
@@ -49,7 +50,7 @@ function countdown() {
     timerEl.classList.add("timer");
     
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
       // As long as the `timeLeft` is greater than 1
       if (timeLeft > 1) {
         // Set the `textContent` of `timerEl` to show the remaining seconds
@@ -84,10 +85,12 @@ var startQuiz = function() {
 function showQuestion() {
     answerDiv.innerHTML = "";
     if(timeLeft === 0 || currentIndex === questions.length) {
-        console.log("THe quiz is ova");
-        questionDiv.classList.add("hidden");
+        console.log("THe quiz is over");
+        questionDiv.style.display = "none";
         hsDiv.classList.remove("hidden");
         hsDiv.classList.add("hsDiv");
+        clearInterval(timeInterval);
+        timerEl.style.visibility = "hidden";
         return
     }
     var currentQuestion = questions[currentIndex];
@@ -111,9 +114,20 @@ function checkQuestion() {
     if (this.value === questions[currentIndex].answer) {
         console.log("this is correct");
         userScore++;
+        answerShow.textContent = "Correct";
+        answerShow.classList.add("timerDiv");
+        setTimeout(function(){
+            answerShow.textContent = "";
+        }, 1500);
+
     } else {
         console.log("this is incorrect");
         timeLeft -= 5;
+        answerShow.textContent ="Incorrect";
+        answerShow.classList.add("timerDiv");
+        setTimeout(function() {
+            answerShow.textContent = ""
+        }, 1500);
     }
     currentIndex++;
     showQuestion();
@@ -141,6 +155,8 @@ if(localStorage.getItem("high scores")) {
 
 saveBtn.addEventListener("click", function(){
     console.log("u clicked the save bttn")
+
+
 
     //creating object to go into local storage
     var hsObject = {
