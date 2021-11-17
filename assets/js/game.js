@@ -126,7 +126,7 @@ function checkQuestion() {
         answerShow.textContent ="Incorrect";
         answerShow.classList.add("timerDiv");
         setTimeout(function() {
-            answerShow.textContent = ""
+            answerShow.textContent = "";
         }, 1500);
     }
     currentIndex++;
@@ -168,8 +168,8 @@ saveBtn.addEventListener("click", function(){
     localStorage.setItem("high scores", JSON.stringify(highscores));
     var tInitials = document.createElement("tr");
     var tScore = document.createElement("tr");
-    tInitials.textContent(initials.value);
-    tScore.textContent(userScore);
+    tInitials.textContent= initials.value;
+    tScore.textContent= userScore;
     hsInitials.appendChild(tInitials);
     hsScore.appendChild(tScore);
     initials.value = "";

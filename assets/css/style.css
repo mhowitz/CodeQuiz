@@ -2,11 +2,7 @@
     --color1: rgba(255, 255, 255, .5)
 }
 body {
-    background-image: linear-gradient(rgba(204, 95, 95, 0.3), rgba(0, 0, 0, 0.3)), url("../images/pexels-markus-spiske-965345.jpg");
-    background-size:cover;
-    background-attachment: fixed;
-    background-position: center;
-    position:relative;
+    background-color: lightblue;
 }
 
 
