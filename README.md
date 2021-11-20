@@ -10,7 +10,7 @@ Click the github URL link to view the website. To view the code, click the link 
 
 When the user clicks the link to deploy the website, they are brought to this main page of the code quiz:
 
-![screenshot-of-page](assets/images/Image 1.JPG)
+![screenshot-of-page](assets/images/Image1.JPG)
 
 
 
