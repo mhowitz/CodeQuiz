@@ -18,29 +18,29 @@ var answerShow = document.getElementById("checkQuestion");
 
 var questions = [
     {
-        question: "Question 1 goes here?",
-        choices: ["choice one", "choice two", "choice three", "choice four"],
-        answer: "choice one"
+        question: "What does JSON stand for?",
+        choices: ["JavaScript Object Notation", "JavaScript Object Name", "JavaScript Object Nodes", "JavaScript Object Network"],
+        answer: "JavaScript Object Notation"
     },
     {
-        question: "Question 2 goes here?",
-        choices: ["choice one", "choice two", "choice three", "choice four"],
-        answer: "choice two"
+        question: "What type of data does localStorage store?",
+        choices: ["Boolean", "Numerical", "Strings", "Null Values"],
+        answer: "Strings"
     },
     {
-        question: "Question 3 goes here?",
-        choices: ["choice one", "choice two", "choice three", "choice four"],
-        answer: "choice three"
+        question: "A function passed as an argument to another function is known as which of the following:",
+        choices: ["Bubbling", "Callback Fuction", "API", "Event Delegation"],
+        answer: "Callback Fuction"
     },
     {
-        question: "Question 4 goes here?",
-        choices: ["choice one", "choice two", "choice three", "choice four"],
-        answer: "choice one"
+        question: "Placeholder values that are located in a method that do not gain value until the function is called are known as:",
+        choices: ["DOM Elements", "Objects", "Bubbling", "parameters"],
+        answer: "parameters"
     },
     {
-        question: "Question 5 goes here?",
-        choices: ["choice one", "choice two", "choice three", "choice four"],
-        answer: "choice two"
+        question: "Which method saves data to local storage?",
+        choices: ["setItem()", "getItem()", "JSON.parse()", "JSON.stringify()"],
+        answer: "setItem()"
     },
 ]
 
@@ -147,16 +147,11 @@ if(localStorage.getItem("high scores")) {
         tScore.textContent = highscores[i].score;
         hsInitials.appendChild(tInitials);
         hsScore.appendChild(tScore);
-
     }
 };
 
-
-
 saveBtn.addEventListener("click", function(){
     console.log("u clicked the save bttn")
-
-
 
     //creating object to go into local storage
     var hsObject = {
