@@ -1,5 +1,10 @@
 # CodeQuiz
 
+Link to deployed website:
+
+ https://mhowitz.github.io/CodeQuiz/
+ 
+ 
 ## Description
 
 This project was created so a user can take a quiz with 5 different coding questions that is timed and saves highscores. This was created using JavaScript, HTML, and CSS. The user is timed for 60 seconds, and if they got the question correct or incorrect, it is displayed on the screen. If they answer incorrectly, 5 seconds is subtracted from the timer. The high scores are displayed at the end of the quiz. They can also look at highscores before the quiz begins by clicking a button to navigate them to a different page. 
